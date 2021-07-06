@@ -1,0 +1,24 @@
+﻿@model URLShortenerV3.Models.Link
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form action="javascript:void(0);" method="post" onsubmit="URLShorten()">
+
+    <div class="input-group input-group-lg" id="url-input-container">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">URL</span>
+        </div>
+        <input id="url-input" asp-for="LongURL" type="text" value="Enter your URL" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <input type="submit" value="Shorten URL" class="btn btn-success btn-lg" />
+
+</form>
+
+<p id="shortened-url"> Your Shortened URL: "" </p>
+
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+ 
