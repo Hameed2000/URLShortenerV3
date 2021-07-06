@@ -57,16 +57,16 @@ namespace URLShortenerV3 {
 
             app.UseMvc(routes => {
 
-                /*routes.MapRoute(
+                routes.MapRoute(
+                    "ShortenURL",
+                    "{id}",
+                    new { controller = "EZ", action = "Index" }
+                );
+
+                routes.MapRoute(
                     "ListAllURLs",                    
                     "{id}",                          
                     new { controller = "EZ", action = "ListAll" } 
-                );*/
-
-                routes.MapRoute(
-                    "ShortenURL",                    
-                    "{id}",                          
-                    new { controller = "EZ", action = "Index" } 
                 );
 
                 routes.MapRoute(

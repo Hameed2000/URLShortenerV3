@@ -11,7 +11,7 @@ namespace URLShortenerV3.Repository {
 
         Task<Link> Get(int id);
 
-        Task<IEnumerable<Link>> GetAll(string ids);
+        Task<List<Link>> GetAll(string ids);
 
     }
 }

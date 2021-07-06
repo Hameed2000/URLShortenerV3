@@ -15,4 +15,5 @@ namespace URLShortenerV3.Models {
         public DateTime DateCreated { get; set; }
 
     }
+
 }

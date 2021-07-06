@@ -47,7 +47,13 @@ function addToCache(linkID){
 
     if ("caches" in window) {
 
-        localStorage["id-cache"] = localStorage.getItem("id-cache") + "_" + linkID;
+        if (localStorage["id-cache"] == "") {
+            localStorage["id-cache"] = localStorage.getItem("id-cache") + linkID;
+        }
+        else {
+            localStorage["id-cache"] = localStorage.getItem("id-cache") + "_" + linkID;
+        }
+        
 
         console.log(localStorage["id-cache"]);
 

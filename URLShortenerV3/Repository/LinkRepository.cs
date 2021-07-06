@@ -52,25 +52,40 @@ namespace URLShortenerV3.Repository {
             
         }
 
-        public async Task<IEnumerable<Link>> GetAll(string ids) {
-            
+        public async Task<List<Link>> GetAll(string ids) {
+
+            Console.WriteLine("THE LIST OF IDS IS BELOW THIS LINE");
+            Console.WriteLine(ids);
+
             string[] idArr = ids.Split("_");
-            Link[] entryArr = new Link[idArr.Length];
+            int[] intArr = new int[idArr.Length];
+            List<Link> entryList = new List<Link>(); 
 
             for (int i = 0; i < idArr.Length; i++) {
-                int index;
-                if ( int.TryParse(idArr[i], out index) ) {
-                    Console.WriteLine(index);
-                    var entry = _context.Links.Find(index);
-                    entryArr.Append(entry);
-                    Console.WriteLine(entry.LinkID);
-                }
+                int id = int.Parse(idArr[i]);
+                var entry = await _context.Links.FindAsync(id);
+                entryList.Add(entry);
             }
 
-            return await _context.Links.ToListAsync();
+            return entryList;
 
         }
 
     }
 
 }
+
+
+/*string[] idArr = ids.Split("_");
+Link[] entryArr = new Link[idArr.Length];
+
+for (int i = 0; i < idArr.Length; i++) {
+    int index;
+    if (int.TryParse(idArr[i], out index)) {
+        Console.WriteLine(index);
+        var entry = _context.Links.Find(index);
+        entryArr.Append(entry);
+        Console.WriteLine(entry.LinkID);
+    }
+}
+*/

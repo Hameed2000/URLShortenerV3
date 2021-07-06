@@ -9,8 +9,7 @@
 // And attach that id to the link entry in the database
 
 let ids = localStorage.getItem("id-cache");
-
-fetch("https://localhost:44378/api/Links/" + ids, {
+fetch("https://localhost:44378/api/Links/GetAllLinks/" + ids, {
     method: 'Get',
 })
     .then(res => {
@@ -26,4 +25,14 @@ fetch("https://localhost:44378/api/Links/" + ids, {
             document.getElementById("ez-text").innerHTML = "Something went wrong...";
             return;
         }
+
+        document.getElementById("ez-text").innerHTML = "Loaded";
+
+        for (let i = 0; i < data.length; i++) {
+            let p = document.createElement("p");
+            p.innerHTML = "Link ID: " + data[i].linkID + " ///  Long URL: " + data[i].longURL + " /// Amount Used: " + data[i].amountUsed + " /// Date Created: " + data[i].dateCreated
+            document.getElementById("list").appendChild(p);
+            console.log(data[i].linkID + " " + data[i].longURL + " " + data[i].amountUsed + " " + data[i].dateCreated);
+        }
+
     })
