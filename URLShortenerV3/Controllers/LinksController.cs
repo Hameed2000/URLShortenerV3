@@ -13,6 +13,7 @@ using URLShortenerV3.Models;
 // Get request to get thh
 
 namespace URLShortenerV3.Controllers {
+    [Route("api/[controller]")]
     [ApiController]
     public class LinksController : ControllerBase {
 
@@ -22,7 +23,7 @@ namespace URLShortenerV3.Controllers {
             _linkRepository = linkRepository;
         }
 
-        [Route("api/[controller]")]
+        //[Route("api/[controller]")]
         [HttpPost]
         public async Task<ActionResult<Link>> CreateLink([FromBody] Link link) {
             var newLink = await _linkRepository.Create(link);
@@ -34,7 +35,7 @@ namespace URLShortenerV3.Controllers {
             return newLink;
         }
 
-        [Route("api/[controller]")]
+       
         [HttpGet("{id}")]
         public async Task<ActionResult<Link>> GetLink(int id) {
             Console.WriteLine("Get link");
@@ -48,11 +49,11 @@ namespace URLShortenerV3.Controllers {
             return link;
         }
 
-        [Route("api/[controller]/[action]/{ids}")]
-        [HttpGet("{ids}")]
-        public async Task<List<Link>> GetAllLinks(string ids) {
+        //[Route("api/[controller]/[action]/{ids}")]
+        [HttpGet("GetAllLinks/{id}")]
+        public async Task<List<Link>> GetAllLinks(string id) {
             Console.Write("Found");
-            return await _linkRepository.GetAll(ids);
+            return await _linkRepository.GetAll(id);
         }
 
     }

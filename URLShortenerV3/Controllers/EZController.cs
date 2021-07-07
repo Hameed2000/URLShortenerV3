@@ -25,6 +25,7 @@ namespace URLShortenerV3.Controllers {
             _linkRepository = linkRepository;
         }
 
+
         public IActionResult Index (int? id) {
             Console.WriteLine("GOT INDEX");
             Console.WriteLine(id);

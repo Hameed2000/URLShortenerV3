@@ -63,11 +63,11 @@ namespace URLShortenerV3 {
                     new { controller = "EZ", action = "Index" }
                 );
 
-                routes.MapRoute(
+                /*routes.MapRoute(
                     "ListAllURLs",                    
-                    "{id}",                          
+                    "EZ/ListAll/{id}",                          
                     new { controller = "EZ", action = "ListAll" } 
-                );
+                );*/
 
                 routes.MapRoute(
                     name: "default",
