@@ -10,7 +10,6 @@ using URLShortenerV3.Models;
 // Web API Controller
 // Post request to add new entry
 // Get request to get the long URL
-// Get request to get thh
 
 namespace URLShortenerV3.Controllers {
     [Route("api/[controller]")]
